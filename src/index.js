@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers';
 import 'tachyons';
 
+const logger = createLogger();
+
 // Create redux store - in real life we have many and many reducers
 const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(logger),
 );
 
 ReactDOM.render(
