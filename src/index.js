@@ -9,7 +9,10 @@ import rootReducer from './reducers';
 import 'tachyons';
 
 // Create redux store - in real life we have many and many reducers
-const store = createStore(rootReducer);
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
     <Provider store={store}>
