@@ -1,9 +1,9 @@
-import * as actions from './';
+import { setSearchField, requestRobots } from '../../actions';
 
 import { 
     CHANGE_SEARCHFIELD,
     REQUEST_ROBOTS_PENDING,
-} from '../constants';
+} from '../../constants';
 
 import configureStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
@@ -17,12 +17,12 @@ it('should create an action to search robots', () => {
         payload: text,
     };
 
-    expect(actions.setSearchField(text)).toEqual(expectedAction);
+    expect(setSearchField(text)).toEqual(expectedAction);
 });
 
 it('handles requesting robots API', () => {
     const store = mockStore();
-    store.dispatch(actions.requestRobots());
+    store.dispatch(requestRobots());
 
     const action = store.getActions();
 

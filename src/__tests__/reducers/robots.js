@@ -5,7 +5,7 @@ import {
     REQUEST_ROBOTS_FAILED,
 } from '../../constants';
 
-import * as reducers from './';
+import * as reducers from '../../reducers/robots';
 
 describe('searchRobots', () => {
     const initialStateSearch = {
